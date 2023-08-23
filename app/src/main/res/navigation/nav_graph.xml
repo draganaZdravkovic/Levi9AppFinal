@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment"
+>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.levi9appfinal.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restaurantDetailFragment"
+        android:name="com.example.levi9appfinal.fragments.RestaurantDetailFragment"
+        android:label="fragment_restaurant_detail"
+        tools:layout="@layout/fragment_restaurant_detail" >
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="restaurantName"
+            app:argType="string"
+            android:defaultValue="Restaurant name" />
+        <argument
+            android:name="restaurantAddress"
+            app:argType="string"
+            android:defaultValue="Restaurant Adress" />
+        <argument
+            android:name="restaurantDesc"
+            app:argType="string"
+            android:defaultValue="Restaurant Description" />
+        <action
+            android:id="@+id/action_restaurantDetailFragment_to_favouritesFragment"
+            app:destination="@id/favouritesFragment" />
+        <argument
+            android:name="restaurantImage"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.levi9appfinal.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouritesEmptyFragment"
+        android:name="com.example.levi9appfinal.fragments.FavouritesEmptyFragment"
+        android:label="fragment_favourites"
+        tools:layout="@layout/fragment_favourites_empty" >
+        <action
+            android:id="@+id/action_favouritesEmptyFragment_to_favouritesFragment"
+            app:destination="@id/favouritesFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.levi9appfinal.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <fragment
+        android:id="@+id/favouritesFragment"
+        android:name="com.example.levi9appfinal.fragments.FavouritesFragment"
+        android:label="fragment_favourites"
+        tools:layout="@layout/fragment_favourites" >
+        <action
+            android:id="@+id/action_favouritesFragment_to_restaurantDetailFragment"
+            app:destination="@id/restaurantDetailFragment" />
+        <action
+            android:id="@+id/action_favouritesFragment_to_favouritesEmptyFragment"
+            app:destination="@id/favouritesEmptyFragment" />
+    </fragment>
+
+</navigation>
